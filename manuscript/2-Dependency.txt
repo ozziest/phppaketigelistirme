@@ -1,0 +1,27 @@
+# Paket/Bağımlılık Yönetimi
+
+Bu bölümde genel bilgiler verilecektir.
+
+## Kurulum
+
+Bu bölüm altında composer kurulumu anlatılacaktır.
+
+## Yapılandırma Dosyası (composer.json)
+
+Bu bölüm altında yapılandırma dosyası anlatılacaktır.
+
+### Otomatik Yapılandırma
+
+Bu bölüm altında `composer init` komutu anlatılacaktır.
+
+## Bağımlılıkların Kurulması
+
+Bu bölüm altında bağımlılıkların kurulması anlatılacaktır.
+
+## Bağımlılıkların Güncellenmesi 
+
+Bu bölüm altında bağımlılıkların güncellenmesi anlatılacaktır.
+
+## Paket Bulma
+
+Bu bölüm altında paket bulma ve yükleme işlemi anlatılacaktır. 
