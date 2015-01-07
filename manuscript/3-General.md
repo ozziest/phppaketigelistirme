@@ -12,11 +12,13 @@ Aşağıda temel bir paketin dizin yapısı görülmektedir;
 │   │   ├── Example
 ├── tests/
 ├── composer.json
+├── README.md
 ```
 
 * `composer.json`: Bu dosya bağımlılık yöneticisine (Composer) paketimizi tanıtan dosyadır.
 * `src/`: Asıl dosyalarımızın bulunacağı dizindir. 
 * `tests`: Paketimizin çalışmasını test eden kodlarımız da bu bölüm altında yer almaktadır.
+* `README.md`: Paket hakkında genel bilgiler veren, Markdown fomatında hazırlanmış bir ön dökümandır. Paket hakkında oluşturulacak döküman ufaksa sadece bu dosyaya yazılır. Eğer daha geniş bir döküman varsa ayrı bir klasör altında dökümanlar toparlanabilir.
 
 I> ## Bilgi
 I> 
