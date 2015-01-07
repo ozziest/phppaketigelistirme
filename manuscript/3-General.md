@@ -137,11 +137,34 @@ W> Eğer bir paketten herhangi bir özelliği kendi paketimizde kullandıysak ve
 
 ## Versiyon Kontrol Sistemi
 
-Bu bölüm altında versiyon kontrol sistemi temel olarak anlatılacaktır.
+Versiyon kontrol sistemleri geliştirdiğimiz projelerin takibinin kolaylaştırılmasını sağlayan araçlardır. Aynı anda birden fazla özellik geliştirme, hangi özelliğin hangi sürümlerde olduğunu takip edebilme, ekip halinde çalışma vb. gibi çok sayıda fayda sağlamaktadır. 
+
+W> ## Uyarı
+W> 
+W> Versiyon kontrol sistemleri bilinen aksin sadece ekip çalışmasının olduğu yerde değil, tek kişi tarafından geliştirilen projeler için de bir zorunluluktur. 
+
+Paket geliştirme sürecinde ise versiyon kontrol sistemleri kullanılmak zorundadır. Geliştirdiğiniz paketin anlık sürümü, yeni özelliklerin hangi sürümlerle çıkacağı vb. gibi nedenlerden ötürü bu bir zorunluluk halini almıştır.
+
+Şuanda bir çok versiyon kontrol sistemi olsa da ağırlıklı olarak **[Git](http://git-scm.com)** ve **[SVN](http://tortoisesvn.net)** tercih edilmektedir. Yine bir çok geliştirici de kullanım kolaylığı açısından ***Git*** önermektedir. Bu nedenlerden ötürü ben de geliştirdiğiniz paketlerde ***Git*** kullanmanızı tavsiye etmekteyim.
+
+I> ## Bilgi
+I>
+I> İlerleyen bölümlerde versiyon kontrol sisteminin paketlerde kullanılmasıyla ilgili ipuçları verilecektir.
 
 ## GitHub ve Alternatifleri
 
-Bu bölüm altında GitHub ve alternatifleri değerlendirilecektir. 
+Paket geliştirme sürecinde versiyon kontrol sistemi kullanarak kodlarınızı bir yerde muhafaza etmek zorundasınızdır. Bu genellikle kendi bilgisayarınız olmaz. Çünkü amacımız dileyen herkesin dilediği anda paketimize ulaşabilmesidir. Bu nedenle bu iş için tasarlanmış servislerden yararlanırız. Dünya genelinde bu iş için geliştirilmiş iki büyük site vardır: **GitHub** ve **BitBucket**.
 
+I> ## Bilgi
+I>
+I> Eğer gerekli olduğunu düşünürseniz kendi sunucularınızı da versiyon kontrol sistemi sunucusu olarak yapılandırabilir ve kodlarınızı kendi sunucularınızda muhafaza edebilirsiniz. Ancak bu konu e-kitap kapsamı dışında olduğundan, e-kitap boyunca değinilmeyecektir.
+
+Her iki siteyi kullanarak, kodlarınızı versiyon kontrol sistmei aracılığı ile muhafaza edebilirsiniz. Ancak ***GitHub*** çok fazla sebepten ötürü daha çok tercih edilmektedir. ***BitBucket***'ın en büyük avantajı ise ücretsiz **Gizli Depo (Private Repository)** oluşturulmasına izin vermesidir. ***GitHub***'da bunu yapmak istediğinizde ücret ödemek zorunda kalırsınız.
+
+Biz e-kitap içerisinde örnekleyeceğimiz uygulamaları ***GitHub*** üzerinde **Açık Depo (Public Repository)** olarak muhafaza edeceğiz.
+
+I> ## Bilgi
+I> 
+I> Eğer geliştirdiğiniz paketi dileyen herkesin kullanımına sunacaksanız; paketinizi açık kaynak lisansları ile lisanslamanız gerekmektedir. Bu lisansların gerekliliği de; kaynak kodlarınızın herkesin ulaşılabileceği bir şekilde yayınlanmasıdır. Bu nedenle gizli depolar sadece kendiniz için hazırladığınız paketler için kullanılabilir.
 
 
