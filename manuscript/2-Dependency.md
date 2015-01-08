@@ -4,7 +4,7 @@ Daha sürdürülebilir projeler geliştirebilmek için uygulamamızın iskeletin
 
 Bana modern PHP dünyasında hangi teknolojinin zaruri olması gerektiğini sorsanız; yukarıdaki paragraftaki nedenten ötürü cevabım **Composer** olacaktır. Composer; PHP ile geliştirilen paketlerin yönetimini, hızlıca projenize paket eklemeyi ve kaldırmayı sağlayan bir ***bağımlılık yöneticisidir***. Özellikle projenizde kullandığınız paketlerin güncellemesinde size sağlayacağı kolaylık ve zaman tasarrufu, kendisini proje geliştirme süreçlerinde çok önemli bir araç haline getirmektedir.
 
-## Kurulum
+## 1. Kurulum
 
 Composer'ı mevcut projenizde ya da yeni bir paket geliştirirken kullanmanız için öncelikle bilgisayarınızda Composer'ın kurulu olması gerekmektedir. Aşağıdaki satırları konsol üzerinde çalıştırarak Composer kurulumunu gerçekleştirebilirsiniz;
 
@@ -19,7 +19,7 @@ Yukarıdaki komutun ilk satırı Composer'ı bilgisayarınıza indirmek, ikinci 
 $ composer -v
 ```
 
-## Yapılandırma Dosyası (composer.json)
+## 2. Yapılandırma Dosyası (composer.json)
 
 Composer ile paket/bağımlılık  yönetimi gerçekleştirmek için proje dizininde bir yapılandırma dosyanızın olması gerekmektedir. Bu yapılandırma dosyası ***JSON*** formatında olmalıdır. Bu yapılandırma dosyasının adı genelde `composer.json` olmaktadır ve bu dosyayı  el yordamı ile ya da konsol üzerinden doğrudan composer'ın kendisine hazırlattırabilirsiniz. 
 
@@ -72,7 +72,7 @@ I> Versiyonlama oldukça önemli bir konu olduğu için **Semantik Versiyonlama*
 
 * `require-dev`: Bu bölüm development aşamasında kullanılan paketler içindir. Sadece geliştirme ortamında kullanacağınız paketleri bu anahtar altında tutabilirsiniz. Böylelikle yayında olan projenizde gereksiz paketleri boşu boşuna diskte tutmak zorunda kalmazsınız. Genelde debug araçları gibi araçlar bu bölüm altında belirtilmektedir. 
 
-### Otomatik Yapılandırma
+### 3. Otomatik Yapılandırma
 
 Konsol üzerinden bir yapılandırma dosyası oluşturmak için çalışacağınız dizin içerisinde aşağıdaki komutu vermeniz yeterli olacaktır. 
 
@@ -82,7 +82,7 @@ $ composer init
 
 Bu komuttan sonra konsol üzerinden sizden paket ile ilgili çeşitli bilgiler istenilecek ve sonrasında yapılandırma dosyası otomatik olarak oluşturulacaktır.
 
-## Bağımlılıkların Kurulması
+## 4. Bağımlılıkların Kurulması
 
 Yukarıdaki gibi **composer.json** dosyası oluşturduktan sonra uygulamanızda kullanacağınız paketleri kurmak için dosya ile aynı dizinde aşağıdaki komutu kullanabilirsiniz;
 
@@ -92,7 +92,7 @@ $ composer install
 
 Composer sizin için yapılandırma dosyasını okuyarak tanımladığınız paketleri bulacak ve `vendor` dizini altına yerleştirecektir. Yerleştirme yaparken **yayıncı/paket** klasör yapısını kullanacaktır. 
 
-## Bağımlılıkların Güncellenmesi 
+## 5. Bağımlılıkların Güncellenmesi 
 
 Composer'ın asıl gücü ise paket güncellemelerinde ortaya çıkmaktadır. Projenizi geliştirmeye devam ettiğiniz herhangi bir anda, kullandığınız paketlerin son güncel hallerini kullanmak için aşağıdaki komutu yapılandırma dosyanızın olduğu dizinde çalıştırabilirsiniz; 
 
@@ -106,7 +106,7 @@ I> ## Uyarı
 I> 
 I> Paket yapılandırmalarında versiyon numaları oldukça önemlidir. Eğer major sürüm numaralarına dikkat edilmezse, update işleminden sonra paketinizin çalışmasını bozacak güncellemeler gelebilir. Bu konuyu daha iyi anlamak için **Semantik Versiyonlama** bölümünü incelenmelidir.
 
-## Paket Bulma
+## 6. Paket Bulma
 
 Composer ile yayınlanan birçok paket  [Packagist](https://packagist.org) üzerinde listelenmektedir. Packagist, Composer paketlerinin listelenmesi için ana Composer ambarıdır. Packagist üzerinden arama yaparak, kullancağınız paketleri bulabilirsiniz.
 

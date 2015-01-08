@@ -2,7 +2,7 @@
 
 PHP için hazırlanan bir paket genel olarak bir PHP yazılımından farksızdır. Buna rağmen paketlerin genel amacı; hızlı bir şekilde ve koda girmeksizin başka projelerde kullanılabilmesidir. Bu bölümde genel kabul görmüş paket oluşturma kurallarına değinilecektir.
 
-## Dizin Yapısı
+## 1. Dizin Yapısı
 
 Aşağıda temel bir paketin dizin yapısı görülmektedir;
 
@@ -24,7 +24,7 @@ I> ## Bilgi
 I> 
 I> Genelde kabul edilen kullanım şekli bu olmasına rağmen kesin bir kural değildir. Dolayısıyla kendi paketinizde dilediğiniz dizin yapısını kullanabilirsiniz. Ancak sizin paketinize katkı yapmak isteyecek bir geliştiricinin kafasını karıştırmaktan öteye gitmiş olmazsınız. Bu nedenle genel kabullere uymak yararlıdır.
 
-## Kod Yapısı
+## 2. Kod Yapısı
 
 Bugüne kadar hiç fonksiyonlardan oluşan bir paket kullanmadım. Daha çok tüm paketler bir sınıf yapısına sahip olmaktadır ve muhakkar bir namespace kullanmaktadır. Global Scope üzerinde herhangi bir sınıf tanımlamak pek hoş karşılanan bir durum değildir. Yukarıdaki klasör yapısında aşağıdaki gibi bir namespace kullanılmış olması muhtemeldir;
 
@@ -32,7 +32,7 @@ Bugüne kadar hiç fonksiyonlardan oluşan bir paket kullanmadım. Daha çok tü
 namespace Ozziest\Example;
 ```
 
-## Autoload
+## 3. Autoload
 
 Composer'ın en güzel yanlarından biri de autoload (Otomatik Yükleme) özelliğidir. ***composer.json*** içerisinde tanımlayacağınızı dizinleri otomatik olarak yükletebilirsiniz. Böylelikle paketinizi kullanan kullanıcılar `include` komutu ile uğraşmayacaklardır. 
 
@@ -43,7 +43,7 @@ Composer'ın en güzel yanlarından biri de autoload (Otomatik Yükleme) özelli
 * classmap
 * files
 
-### PSR-0 
+### 3.1. PSR-0 
 
 PSR-0 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
 
@@ -63,7 +63,7 @@ I> ## Uyarı
 I> 
 I> [PSR-0](http://www.php-fig.org/psr/psr-0/) **PHP Otomatik Yükleme Standardı**'dır. Ancak bu standart artık önerilmemekte ve bunun yerine PSR-4 standardı önerilmektedir. 
 
-### PSR-4
+### 3.2. PSR-4
 
 PSR-4 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
 
@@ -79,7 +79,7 @@ PSR-4 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı
 
 Bu tanımlama ile `Ozziest\Example` namespace'imizin nerede aranması gerektiğini Composer'a söylemiş olmaktayız.
 
-### Classmap
+### 3.3. Classmap
 
 Classmap, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan klasörlerin otomatik olarak yüklenmesi için daha uygundur.
 
@@ -91,7 +91,7 @@ Classmap, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan 
 }
 ``` 
 
-### Files
+### 3.4. Files
 
 Files, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan tek bir dosyanın otomatik olarak yüklenmesi istenildiğinde daha uygundur.
 
@@ -103,7 +103,7 @@ Files, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan tek
 }
 ``` 
 
-## Bağımlılık Yönetimi
+## 4. Bağımlılık Yönetimi
 
 Geliştirdiğimiz paketin hiçbir başka pakete bağımlı olmadan, kendi başına çalışabilmesi en idealidir. Ancak bu çoğu zaman mümkün değildir ve paketler başka paketlerle birlikte çalışma ihtiyacı hissedebilirler. Örneğin [Symfony/Yaml](https://github.com/symfony/Yaml) kendi başına çalışabilen bir paketken, [PHPUnit](https://github.com/sebastianbergmann/phpunit) çalışmak için başka paketlere bağımlıdır. Tüm bu bağımlılıkların hepsi `composer.json` dosyası içerisinde tanımlanmalıdır. Aşağıda PHPUnit paketinin bağımlılıklarının yazıldığı bölüm görülmektedir;
 
@@ -137,7 +137,7 @@ W> ## Uyarı
 W> 
 W> Eğer bir paketten herhangi bir özelliği kendi paketimizde kullandıysak ve bunu ***composer.json*** dosyasında tanımlamadıysak ne olur? Paketimiz yüklendiğinde bağımlı olunan paket yüklenmez ve çalışma anında bağımlı olunan paket bulunamadığı için bir hata ile karşılaşılır.
 
-## Versiyon Kontrol Sistemi
+## 5. Versiyon Kontrol Sistemi
 
 Versiyon kontrol sistemleri geliştirdiğimiz projelerin takibinin kolaylaştırılmasını sağlayan araçlardır. Aynı anda birden fazla özellik geliştirme, hangi özelliğin hangi sürümlerde olduğunu takip edebilme, ekip halinde çalışma vb. gibi çok sayıda fayda sağlamaktadır. 
 
@@ -153,7 +153,7 @@ I> ## Bilgi
 I>
 I> İlerleyen bölümlerde versiyon kontrol sisteminin paketlerde kullanılmasıyla ilgili ipuçları verilecektir.
 
-## GitHub ve Alternatifleri
+## 6. GitHub ve Alternatifleri
 
 Paket geliştirme sürecinde versiyon kontrol sistemi kullanarak kodlarınızı bir yerde muhafaza etmek zorundasınızdır. Bu genellikle kendi bilgisayarınız olmaz. Çünkü amacımız dileyen herkesin dilediği anda paketimize ulaşabilmesidir. Bu nedenle bu iş için tasarlanmış servislerden yararlanırız. Dünya genelinde bu iş için geliştirilmiş iki büyük site vardır: **GitHub** ve **BitBucket**.
 

@@ -1,6 +1,6 @@
 # Örnek Bir Paket Oluşturulması
 
-## Amaç
+## 1. Amaç
 
 Bu bölüm altında paketin ilk oluşturulması aşamasından başlanarak, yayınlanma aşamasına kadar geçen süreçler adım adım örneklenecektir.
 
@@ -16,7 +16,7 @@ I> ## Bilgi
 I>
 I> Bu özelliği belirlemek tamamen bizim elimizde. Amacımız iş yapan bir paket geliştirmek yerine paket geliştirmeyi anlatmak olduğundan, örneğimizde kullancağımız paketin çok az bir işi yapıyor olması işimize gelmektedir.
 
-## Temel Yapılandırma 
+## 2. Temel Yapılandırma 
 
 Temel olarak paketimizin hangi işi yapacağına karar verdikten sonra, paket ile ilgili genel ayarlamaları yapmamız gerekmektedir. Bu adımlar şöyledir;
 
@@ -26,7 +26,7 @@ Temel olarak paketimizin hangi işi yapacağına karar verdikten sonra, paket il
 * Composer Yapılandırması
 * İlk Commit
 
-### Paket Adının Belirlenmesi
+### 2.1. Paket Adının Belirlenmesi
 
 Paket adı belirlenirken dikkat edilecek bazı önemli noktalar bulunmaktadır;
 
@@ -45,7 +45,7 @@ I> ## Bilgi
 I> 
 I> Biz paketimizin adını "Example" olarak belirledik ve bundan sonraki işlemlerde bu isim üzerinden anlatım gerçekleştirilecektir. 
 
-### Paketin Deposunun Oluşturulması
+### 2.2. Paketin Deposunun Oluşturulması
 
 Bir sonraki adımımız paketimizi nerede muhafaza edeceğimizin belirlenmesidir. Biz herkese açık, [MIT Lisansı](http://opensource.org/licenses/MIT)'na sahip bir paket geliştirmek istiyoruz. Bu nedenlerden ötürü GitHub hesabımda **example** isimli bir depo (repo) oluşturacağım. 
 
@@ -59,7 +59,7 @@ I> ## Bilgi
 I> 
 I> Benim örneğimde kullancağım repoya [link](https://github.com/ozziest/example) aracılığı ulaşabilirsiniz.
 
-### Paketin Yerele Alınması
+### 2.3. Paketin Yerele Alınması
 
 Paketimizi ***GitHub*** üzerinde oluşturduktan sonra, çalışmalarımızı yapmak için kendi bilgisayarımıza almamız gerekmektedir. Bunun için paket oluşturulduktan sonra GitHub bize yardımcı olmak amacıyla örnek kodlar göstermektedir. Bu kodlar versiyon kontrol sistemi ***(Git)*** komutlarından oluşmaktadır. Git için hazırlanan kullanıcı arayüzleri olsa da, biz işlemlerimizi ***konsol (terminal)*** üzerinden gerçekleştireceğiz. 
 
@@ -77,7 +77,7 @@ Komut çalıştırıldıktan sonra ilgili depo kendi çalışma ortamınıza ind
 $ ls -all
 ```
 
-### Composer Yapılandırması
+### 2.4. Composer Yapılandırması
 
 Depomuzu kendi bilgisayarımıza aldıktan sonra, depomuzun klasörünün içerisine girip aşağıdaki komutu çalıştırıyoruz ve ***composer*** yapılandırma dosyasını oluşturuyoruz;
 
@@ -87,7 +87,7 @@ $ composer init
 
 Bu komut çalıştırıldıktan sonra ***composer*** bize çeşitli sorular soracaktır. Bunlar paket adı (yayıncı/paket adı), paket açıklaması vb. gibi sorulardır. Bu sorulara uygun cevapları yazarak yapılandırmayı tanımlayabilirsiniz.
 
-### İlk Commit
+### 2.5. İlk Commit
 
 Composer yapılandırması oluşturulduktan sonra ana dizinde bir composer.json dosyası oluşacaktır. Bu işlemden sonra var olan yapılandırmamızı ***GitHub*** üzerindeki depomuza gönderilerek ilk commit işlemimiz gerçekleştirilmiş olacaktır. Bunun için aşağıdaki komutlar sırasıyla çalştırılır;
 
@@ -99,7 +99,7 @@ $ git push origin master
 
 Bu işlemden sonra yaptığımız değişiklikler depomuza gönderilmiş olacaktır.
 
-## Döküman Oluşturulması
+## 3. Döküman Oluşturulması
 
 Bu başlığa özellikler yer vermek istiyorum. Çünkü bizim unuttuğumuz en önemli husustan biridir döküman hazırlanması. Çok harika işler yapıldığında dahi bunların belgelenmediğine şahit oluyoruz. Bu nedenle bir paket oluştururken, önce dökümanın hazırlanması oldukça önemlidir. ***"Ön işi yapalım, sonra açıklarız."*** demek yerine; ***"Ön nasıl çalışacağını belgeleyelim, sonra bu belgeye uygulayacak kodları yazarız."*** demek uzun vadede daha kârlı bir iş olacaktır.
 
@@ -116,13 +116,13 @@ I> Dökümanımızı [Markdown](https://help.github.com/articles/markdown-basics
 
 Bu temel başlıkların yerine siz de hazırlayacağınız paketin durumuna göre ek başlıklar oluşturabilirsiniz. Bizim oluşturduğumuz paketin dökümanı [link](https://github.com/ozziest/example/blob/master/README.md) üzerinden incelenebilir.
 
-## Test Yazılması
+## 4. Test Yazılması
 
 Test yazımı ne yazık ki bir çoğumuzun uymadığı bir husustur. Yazmak gibi bir zorunluluğumuz yoktur ancak daha profesyonel bir paket için gereklidir. Bu, paketinizin güvenilirliğini de önemli ölçüde etkilemektedir. 
 
 PHP ile test yazmak için bir çok araç bulunmaktadır. Bunlardan en önemlileri [PHPUnit](https://phpunit.de), [PHPSpec](http://www.phpspec.net) ve [CodeCeption](http://codeception.com) araçlarıdır. Siz hepsini inceleyip, ihtiyaçlarınıza göre ([Birim Test](http://tr.wikipedia.org/wiki/Birim_testi), [Entegreasyon Testi](http://en.wikipedia.org/wiki/Integration_testing), [Fonksiyonel Test](http://en.wikipedia.org/wiki/Functional_testing)) en idealini projeniz için kullanabilirsiniz. Biz örneğimiz için PHPUnit'i kullanacağız.   
 
-### PHPUnit'in Projeye Dahil Edilmesi
+### 4.1. PHPUnit'in Projeye Dahil Edilmesi
 
 PHPUnit kurulumu iki aşamadan oluşmaktadır. Öncelikle PHPUnit'i genel olarak sistemimize kurmamız gerekmektedir;
 
@@ -160,7 +160,7 @@ W> ## Uyarı
 W>
 W> Eğer PHPUnit kurulumunda sorun yaşıyorsanız, [kendi dökümanından](https://phpunit.de/manual/current/en/installation.html) yararlanabilirsiniz. 
 
-### PHPUnit Yapılandırması
+### 4.2. PHPUnit Yapılandırması
 
 `phpunit` komutuna yazdığımız testleri yolunu belirterek testleri çalıştırabiliriz. Ancak öncelikle bu işlemi her defasında tekrar etmemek amacıyla, paketimizin kök dizinine `phpunit.xml` adında bir yapılandırma dosyası oluşturacağız ve içerisini aşağıdaki gibi düzenleyerek kaydedeceğiz;
 
@@ -190,7 +190,7 @@ Time: 38 ms, Memory: 2.00Mb
 No tests executed!
 ```
 
-### Test Sınıfının Oluşturulması
+### 4.3. Test Sınıfının Oluşturulması
 
 Öncelikle ***tests*** dizini altında `SampleTest.php` ismiyle bir dosya oluşturarak, dosyayı aşağıdaki gibi düzenleyelim;
 
@@ -215,7 +215,7 @@ OK (1 test, 1 assertion)
 
 Bu demek oluyor ki testimiz sorunsuz bir şekilde çalışıyor.
 
-### Testimizin Yazılması
+### 4.4. Testimizin Yazılması
 
 Daha önce bir dökümantasyon oluşturduğumuz için testimizi yazmak çok daha kolay olacaktır. Test işlemini gerçekleştireceğimiz metodumuzu, dökümanımızdaki gibi düzenliyoruz;
 
@@ -232,7 +232,7 @@ Burada yaptığımız; sınıfımızı kullanarak, beklediğimiz sonucu sınıf�
 
 Bundan sonra yapmamız gereken; testimizin tekrar **yeşil** renge dönmesini sağlayan kodları yazmaktır.
 
-## Paketin Geliştirilmesi
+## 5. Paketin Geliştirilmesi
 
 Bu bölümde daha önce yazdığımız testi geçen paketimizin kodlarını geliştireceğiz. 
 
@@ -312,13 +312,13 @@ public function title($text)
 
 Bu işlemden sonra hedeflediğimiz işi yapan basit bir sınıf geliştirdiğimizi varsayabiliriz. 
 
-### Bağımlılık Tanımlaması
+## 6. Bağımlılık Tanımlaması
 
 Bizim hazırladığımız paket, yalnızca tek bir işe odaklanmış bir pakettir. Bu nedenle aklınıza "Neden bu kadar basit bir iş için bu kadar uğraştık?" sorusu gelmesi son derece mantıklıdır. Ancak bizim paketimizdeki iş örnek oluşturulması amacıyla seçilmiştir. Daha çok iş yapan çok gelişmiş bir paket oluşturabilirsiniz. Örneğin [Sentry](https://github.com/cartalyst/sentry) gibi yetkilendirme ve oturum yönetimi işlemini gerçekleştiren çok büyük paketler vardır. Fakat her paketin de bu kadar kapsamlı olmasına da gerek yoktur. Küçük bir işe odaklanan, basit paketlerin olması da mümkündür. 
 
 Bazı durumlarda paketler büyükçe bağımlı olduğu başka paketler de olabilmektedir. Bunun için ilgili bağımlılığının ***composer.json*** üzerinde tanımlanması gerekmektedir. Bu tanımlamadan sonra asıl kodlarımız için ilgili bağımlılık kullanılabilir.
 
-## Semantik Versiyonlama
+## 7. Semantik Versiyonlama
 
 Yazılım dünyasında önemli bir sorun versiyonlamadır. Bu, bazı insanlar için ticari bir kavram olabilir ama bizim için teknik bir tabirdir. Paket geliştirme ve sürdürme süresince ise kritik bir rol oynar. 
 
@@ -328,7 +328,7 @@ Geliştirilen birçok paket, yazılımın doğası gereği geliştirildiği gibi
 
 Peki bu değişime nasıl ayak uyduracağız ve paketlerin birbirleri ile uyumla çalışmasını sağlayacağız? Bu sorun uzun zaman önce çözülmüş ve **Semantik Versiyonlama** ortaya atılmıştır.
 
-### Değişiklik Kategorileri
+### 7.1. Değişiklik Kategorileri
 
 Semantik Versiyonlama'da her değişiklik bir kategoriye aittir. Bu kategoriler aşağıdaki gibidir;
 
@@ -345,11 +345,11 @@ major.minor.patch
 
 Yapılan güncelleme hangi kategoriye aitse, ilgili numara 1 arttırılır. 
 
-#### Patch Güncellemeleri
+#### 7.2. Patch Güncellemeleri
 
 Paketimizdeki çeşitli hatalar düzeltildiğinde ilgili işlem bu kategoride değerlendirilir. Tespit edilen bir hata giderilmiş ve paketin çalışma mantığında hiçbir değişiklik olmamıştır. 
 
-#### Minor Güncellemeler
+#### 7.3. Minor Güncellemeler
 
 Paketimize yeni bir özellik eklediğimizde bu kategoride değerlendirilir. Örneğin **Cache** işlemi yapan bir paket tasarladığımızı varsayalım. Bu paket daha önce **MemCache** teknolojisi ile çalışabiliyorken daha sonradan **Redis** teknolojisi de eklenirse bu bir **minor** güncelleme olacaktır. 
 
@@ -357,7 +357,7 @@ W> ## Uyarı
 W>
 W> Anahtar kuralımız, minor değişiklikten sonra geçmişe yönelik desteğin devam etmesidir. Eğer destek devam etmiyorsa, yani paketin eski halini kullanan kodlar bundan etkilenebilirse bu bir major değişikliktir. 
 
-#### Major Güncellemeler
+#### 7.4. Major Güncellemeler
 
 Paketimizde yapılan ve sonrasında paketin çalışmasını doğrudan etkileyen değişikliklere verilen isimdir. Örneğin var olan bir metodun kaldırılması ya da yeni bir zorunlu parametre eklenmesi gibi değişiklikler **major** güncelleme olarak adlandırılır.
 
@@ -367,7 +367,7 @@ I> ## Bilgi
 I> 
 I> Bazı durumlarda major değişiklikler o kadar büyük olur ki; eski sürümden yeni major sürüme geçmek olanaksız olur. 
 
-### Paketimize Versiyon Verme
+### 7.5. Paketimizin Versiyonunu Belirleme
 
 Paketimize ilk defa versiyon verirken dikkat etmemiz gereken; paketimizin kararlılığıdır. Eğer paketinizin hazır olduğunu düşünüyorsanız, doğrudan **1.0.0** versiyon numarasıyla başlatabilirsiniz. Ancak bu pek önerilen bir yöntem değildir. Paketler genellikle **0.1.0** numarasından başlarlar ve yukarıda belirtilen kurallara göre versiyon numarası güncellenir. Paket çeşitli geliştirciler tarafından test edildikten sonra artık **1.0.0** kararlı sürümüne ulaşabilir.
 
@@ -391,7 +391,7 @@ I> ## Bilgi
 I> 
 I> Yeni eklemelerden sonra versiyon numaralarının değiştirilmeleri önemlidir. Dilerseniz eski versiyon numaralarını da silebilirsiniz ancak major ve minor versiyon numaralarının silinmesi pek önerilmez. Genelde **patch** bölümünde birden fazla değişik versiyon varsa (1.0.1, 1.0.2, 1.0.3) sadece en son versiyon numarasının saklanması daha yerinde olacaktır. 
 
-### Composer'da Versiyon Seçimi
+### 7.6. Composer'da Versiyon Seçimi
 
 Composer ile bir başka paketi projenize dahil ederken aşağıdaki kullanım şeklinden yararlanabilirsiniz;
 
@@ -419,11 +419,11 @@ Eğer yeni özellikleri de istemiyor ve sadece var olan hataların güncellemele
 }
 ```
 
-## Packagist İle Yayınlama
+## 8. Packagist İle Yayınlama
 
 Bu bölüm altına paketimizin nasıl yayınlanacağı anlatılacaktır.
 
-## Kurulum Denemesi
+## 9. Kurulum Denemesi
 
 Bu bölüm altında paketimizin kurulum ve kullanımı test edilecektir.
 
