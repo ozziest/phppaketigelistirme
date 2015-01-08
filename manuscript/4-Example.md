@@ -234,15 +234,190 @@ Bundan sonra yapmamız gereken; testimizin tekrar **yeşil** renge dönmesini sa
 
 ## Paketin Geliştirilmesi
 
-Bu bölüm altında paket geliştirilecektir.
+Bu bölümde daha önce yazdığımız testi geçen paketimizin kodlarını geliştireceğiz. 
+
+Öncelikle `src` dizinimizin altında `Ozziest\Example` klasörleri oluşturuyoruz.
+
+```
+├── src/
+│   ├── Ozzziest
+│   │   ├── Example
+```
+
+Daha sorna `Example` klasörü içerisine `Example.php` dosyası oluşturarak, içerisini aşağıdaki gibi dolduruyoruz.
+
+```php
+namespace Ozziest\Example;
+
+class Example {
+
+    public function title($text)
+    {
+        
+    }
+
+}
+```
+
+Bu işlemden sonra, işi gerçekleştirecek asıl sınıfımızı ve metodumuzu oluşturmuş olduk. Ancak bu adımda testimizi çalıştırdığımızda yine sınıfımızın bulunamadığını göreceksiniz;
+
+```
+$ phpunit
+
+PHP Fatal error:  Class 'Ozziest\Example\Example' not found in ...
+```
+
+Bunun nedeni otomatik yükleme ayarlarını henüz yapmamış olmamızdır. Diğer bir deyişle; henüz ***Example.php*** dosyamız testimiz için include edilmemiştir.
+
+Otomatik yükleme işlemi için ***composer.json*** dosyamızı açarak içerisini aşağıdaki eklemeyi yapıyoruz;
+
+```json
+"autoload": {
+    "psr-4": {
+        "Ozziest\\Example\\": "src/Ozziest/Example"
+    }
+}
+```
+
+Bu eklemeyle birlikte ***composer***'a ilgili namespace'in hangi dizin altında aranması gerektiğini söylemiş oluyoruz. Bu işlemden sonra komut satırında aşağıdaki komutu çalıştırarak, otomatik yüklemelerin yeniden ayarlanması gerektiğini ***composer***'a söylemiş oluyoruz;
+
+```
+$ composer dump-autoload
+```
+
+I> ## Bilgi
+I>
+I> Composer'ın çalışma mantığını daha iyi anlamak için `vendor/composer` dizini altındaki dosyaları inceleyebilirsiniz.
+
+Bu işlemden sonra `phpunit` komutunu çalıştırdığınız takdirde; kırmızı renklerle ilgili metodun beklenilen sonucu vermediğini görebilirsiniz. 
+
+Bu noktadan sonra tek yapmanız gereken, artık işi yapan komutları geliştirmektedir. Bizim amacımız gerçekten iş yapan bir paket geliştirmekten ziyade, paket geliştirmek olduğundan, sadece testi geçmemizi sağlayacak olan kodları metodumuza dahil ediyoruz;
+
+```php
+public function title($text)
+{
+    return trim(
+        mb_convert_case(
+            str_replace(
+                [' I',' ı', ' İ', ' i'],
+                [' I',' I',' İ',' İ'],
+                $text
+            ),
+            MB_CASE_TITLE, 
+            "UTF-8"
+        )
+    );
+}
+``` 
+
+Bu işlemden sonra hedeflediğimiz işi yapan basit bir sınıf geliştirdiğimizi varsayabiliriz. 
 
 ### Bağımlılık Tanımlaması
 
-Bu bölüm altında test araçlarının paket bağımlılıklarına eklenmesi anlatılacaktır.
+Bizim hazırladığımız paket, yalnızca tek bir işe odaklanmış bir pakettir. Bu nedenle aklınıza "Neden bu kadar basit bir iş için bu kadar uğraştık?" sorusu gelmesi son derece mantıklıdır. Ancak bizim paketimizdeki iş örnek oluşturulması amacıyla seçilmiştir. Daha çok iş yapan çok gelişmiş bir paket oluşturabilirsiniz. Örneğin [Sentry](https://github.com/cartalyst/sentry) gibi yetkilendirme ve oturum yönetimi işlemini gerçekleştiren çok büyük paketler vardır. Fakat her paketin de bu kadar kapsamlı olmasına da gerek yoktur. Küçük bir işe odaklanan, basit paketlerin olması da mümkündür. 
 
-## Versiyon Numarası
+Bazı durumlarda paketler büyükçe bağımlı olduğu başka paketler de olabilmektedir. Bunun için ilgili bağımlılığının ***composer.json*** üzerinde tanımlanması gerekmektedir. Bu tanımlamadan sonra asıl kodlarımız için ilgili bağımlılık kullanılabilir.
 
-Bu bölüm altında versiyon numarası verme işlemi gerçekleştirilecektir.
+## Semantik Versiyonlama
+
+Yazılım dünyasında önemli bir sorun versiyonlamadır. Bu, bazı insanlar için ticari bir kavram olabilir ama bizim için teknik bir tabirdir. Paket geliştirme ve sürdürme süresince ise kritik bir rol oynar. 
+
+Geliştirilen birçok paket, yazılımın doğası gereği geliştirildiği gibi kalmaz. Hatalar giderilir, yeni özellikler eklenir ya da çekirdekte çok önemli değişikliker yapılabilir. 
+
+Örneğin; bir paket geliştirirken, başka bir **A** paketini kullandığınızı varsayalım ve kendi paketinizin bir yerinde **A** paketinde bulunan ***getAttr()*** metodunu çağırıyorsunuz. Ancak zamanla **A** paketinin içeriği değişti ve bu metot kullanımdan kaldırıldı. Bu durumda sizin paketiniz çalışmaz. Paketler ***Composer*** ile otomatik olarak güncellenebildiğinden, paketinizin çalışması siz daha farkına varamadan bozulabilirdi. 
+
+Peki bu değişime nasıl ayak uyduracağız ve paketlerin birbirleri ile uyumla çalışmasını sağlayacağız? Bu sorun uzun zaman önce çözülmüş ve **Semantik Versiyonlama** ortaya atılmıştır.
+
+### Değişiklik Kategorileri
+
+Semantik Versiyonlama'da her değişiklik bir kategoriye aittir. Bu kategoriler aşağıdaki gibidir;
+
+* Patch Güncellemeleri 
+* Minor Güncellemeler
+* Major Güncellemeler 
+
+Bir paketin versiyon numaraları sırasıyla şu şekilde sıralanmaktadır;
+
+```
+major.minor.patch
+// Örnek; 1.0.0
+```
+
+Yapılan güncelleme hangi kategoriye aitse, ilgili numara 1 arttırılır. 
+
+#### Patch Güncellemeleri
+
+Paketimizdeki çeşitli hatalar düzeltildiğinde ilgili işlem bu kategoride değerlendirilir. Tespit edilen bir hata giderilmiş ve paketin çalışma mantığında hiçbir değişiklik olmamıştır. 
+
+#### Minor Güncellemeler
+
+Paketimize yeni bir özellik eklediğimizde bu kategoride değerlendirilir. Örneğin **Cache** işlemi yapan bir paket tasarladığımızı varsayalım. Bu paket daha önce **MemCache** teknolojisi ile çalışabiliyorken daha sonradan **Redis** teknolojisi de eklenirse bu bir **minor** güncelleme olacaktır. 
+
+W> ## Uyarı
+W>
+W> Anahtar kuralımız, minor değişiklikten sonra geçmişe yönelik desteğin devam etmesidir. Eğer destek devam etmiyorsa, yani paketin eski halini kullanan kodlar bundan etkilenebilirse bu bir major değişikliktir. 
+
+#### Major Güncellemeler
+
+Paketimizde yapılan ve sonrasında paketin çalışmasını doğrudan etkileyen değişikliklere verilen isimdir. Örneğin var olan bir metodun kaldırılması ya da yeni bir zorunlu parametre eklenmesi gibi değişiklikler **major** güncelleme olarak adlandırılır.
+
+Major güncellemeler pek sevilmez. Çünkü o ana kadar paketi kullanan başka projeler bundan etkilenecektir. Eğer bir major güncelleme olursa, muhtalaka bir **Upgrade Guide (Yükseltme Rehberi)** hazırlanarak, ilgili değişikliğe nasıl adapte olunacağı belgelendirilmelidir.
+
+I> ## Bilgi 
+I> 
+I> Bazı durumlarda major değişiklikler o kadar büyük olur ki; eski sürümden yeni major sürüme geçmek olanaksız olur. 
+
+### Paketimize Versiyon Verme
+
+Paketimize ilk defa versiyon verirken dikkat etmemiz gereken; paketimizin kararlılığıdır. Eğer paketinizin hazır olduğunu düşünüyorsanız, doğrudan **1.0.0** versiyon numarasıyla başlatabilirsiniz. Ancak bu pek önerilen bir yöntem değildir. Paketler genellikle **0.1.0** numarasından başlarlar ve yukarıda belirtilen kurallara göre versiyon numarası güncellenir. Paket çeşitli geliştirciler tarafından test edildikten sonra artık **1.0.0** kararlı sürümüne ulaşabilir.
+
+Biz de paketimizi başlangıç için **0.1.0** versiyon numarasıyla başlatmak istiyoruz. Bunu belirtmek için ***Git*** komutlarından yarlanacağız;
+
+```
+$ git tag 0.1.0
+$ git push --tags
+```
+
+Bu komutlar çalıştırıldıktan sonra aşağıdaki çıktı size gösterilecektir;
+
+```
+To https://github.com/ozziest/example.git
+ * [new tag]         0.1.0 -> 0.1.0
+```
+
+[GitHub deposu](https://github.com/ozziest/example/releases) üzerinden paketimizi incelerseniz, paketin tüm versiyon numaları burada gösterilecektir.
+
+I> ## Bilgi
+I> 
+I> Yeni eklemelerden sonra versiyon numaralarının değiştirilmeleri önemlidir. Dilerseniz eski versiyon numaralarını da silebilirsiniz ancak major ve minor versiyon numaralarının silinmesi pek önerilmez. Genelde **patch** bölümünde birden fazla değişik versiyon varsa (1.0.1, 1.0.2, 1.0.3) sadece en son versiyon numarasının saklanması daha yerinde olacaktır. 
+
+### Composer'da Versiyon Seçimi
+
+Composer ile bir başka paketi projenize dahil ederken aşağıdaki kullanım şeklinden yararlanabilirsiniz;
+
+```json
+{
+    "require": {
+        "ozziest/example": "1.*"
+    }
+}
+```
+
+Bu tanımlamada görüldüğü üzere; ilgili paketin **"1.*"**  sürümünün kullanılması istenmektedir. Eğer pakette major bir değişiklik olursa, **composer update** komutu çalıştırılsa bile o değişiklik alınmaz ve böylece paketi kullanan projeler major değişikliklerden etkilenmez. 
+
+W> ## Uyarı
+W> 
+W> Eğer tanımlama yaparken **"1.*"** yerine  **"dev-master"** yazılırsa, ilgili paketin sürüm numarasına dikkat edilmeden son hali kullanılacaktır. Bu kullanımı yukarıdaki sebeplerden ötürü önerilmemektedir.
+
+Eğer yeni özellikleri de istemiyor ve sadece var olan hataların güncellemelerini almak istiyorsak; aşağıdaki gibi bir kullanım uygun olacaktır;
+
+```json
+{
+    "require": {
+        "ozziest/example": "1.5.*"
+    }
+}
+```
 
 ## Packagist İle Yayınlama
 
