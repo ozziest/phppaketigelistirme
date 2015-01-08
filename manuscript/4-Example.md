@@ -312,6 +312,10 @@ public function title($text)
 
 Bu işlemden sonra hedeflediğimiz işi yapan basit bir sınıf geliştirdiğimizi varsayabiliriz. 
 
+I> ## Bilgi
+I>
+I> Yaptığınız tüm değişikliklri ***GitHub*** üzerindeki deponuza gönderdiğinizden lütfen emin olunuz.
+
 ## 6. Bağımlılık Tanımlaması
 
 Bizim hazırladığımız paket, yalnızca tek bir işe odaklanmış bir pakettir. Bu nedenle aklınıza "Neden bu kadar basit bir iş için bu kadar uğraştık?" sorusu gelmesi son derece mantıklıdır. Ancak bizim paketimizdeki iş örnek oluşturulması amacıyla seçilmiştir. Daha çok iş yapan çok gelişmiş bir paket oluşturabilirsiniz. Örneğin [Sentry](https://github.com/cartalyst/sentry) gibi yetkilendirme ve oturum yönetimi işlemini gerçekleştiren çok büyük paketler vardır. Fakat her paketin de bu kadar kapsamlı olmasına da gerek yoktur. Küçük bir işe odaklanan, basit paketlerin olması da mümkündür. 
@@ -421,9 +425,89 @@ Eğer yeni özellikleri de istemiyor ve sadece var olan hataların güncellemele
 
 ## 8. Packagist İle Yayınlama
 
-Bu bölüm altına paketimizin nasıl yayınlanacağı anlatılacaktır.
+Şuana kadar yaptığımız işlemler çalışan bir paketin kodlarını yayınlamaktan ibarettir. Paketimizin ***composer*** ile kurulabilmesi için [Packagist](https://packagist.org) üzerinden paketimizi duyurmamız gerekecektir.
+
+I> ## Bilgi
+I>
+I> Packagist, ***composer*** için oluşturulmuş bir paket deposu ya da diğer bir değişle paket arşividir. 
+
+### 8.1 Packagist Hesabı Oluşturma
+
+Bunun için öncelikle ***Packagist*** üzerinden bir hesap oluşturmanız gerekmektedir. 
+
+I> ## Uyarı
+I>
+I> ***Packagist*** hesabınızında kullanacağınız kullanıcı adının, ***GitHub*** hesabınızda kullandığınız kullanıcı adıyla aynı olması daha şık duracaktır. 
+
+### 8.2 Paket Gönderme
+
+***Packagist*** üzerinde paketinizi yanıtmak için yeşil renkli **"Submit Package"** butonuna tıklayarak paket gönderme formuna ulaşmanız gerekmektedir.
+
+Açılan form üzerinde paketinizin yer aldığı deponun linki sizden istenilecektir. Paketinizin GitHub üzerinde muhafaza edildiği deponun linkini bu bölüme yazarak **"Check"** butonuna tıklayabilirsiniz. 
+
+I> ## Uyarı
+I>
+I> Eğer paketinizin adına benzer başka paketler varsa, ***Packagist*** sizi uyaracaktır. Bu uyarıyı dikkate almayabilirsiniz. 
+
+Kontrol işleminden sonra form üzerinde **"Submit"** butonu görünecektir. Butona tıklayarak paket tanıtma işlemini sonlandırabilirsiniz. Paket tanıtım işlemi sonlandırıldıktan sonra paketiniz için oluşturulan sayfaya yönlendirileceksiniz. Bu bölümde paketinizin detaylarını (Versiyonlar, lisans bilgisi, yazarlar, bağımlılıklar vs.) görebilirsiniz.
+
+### 8.3 Otomatik Paket Güncelleme
+
+Varsayalım paketinize yeni güncellemeler gönderdiniz ve bu güncellemelerden sonra paketinizin yeni bir versiyon numarası oldu. Bu bilgi otomatik olarak ***Packagist***'e ulaşmaz. Bu durumda ya her güncellemeden sonra paket sayfasına gelerek **"Force Update"** butonu aracılığı ile paketin son halinin kontrol edilmesini isteyeceksiniz ya da bu işlemi otomatikleştireceksiniz. 
+
+Otomatikleştirme işlemi için her güncellemeden sonra ***GitHub***'dan ***Packagist***'in tetiklenmesini sağlayacağız. Bu tetikleme işlemine **Services** adı verilmektedir. 
+
+I> ## Bilgi
+I>
+I> Sadece ***Packagist*** için değil bir çok farklı servis için tetikleme işlemi tanımlayabilir, dilerseniz kendinize özet tetiklemeler yazabilirsiniz. (Örneğin her yeni versiyondan sonra otomatik tweet gönderilmesi gibi.) Tüm bu işlemler deponuzun ayarlar bölümünde ***Webhooks&Services*** sekmesi altında yer almaktadır. 
+
+Tetikleme işlemlerinde kullanılmak üzere ***Packagist*** size bir **API Token (API Anahtarı)**vermektedir. Bu anahtarı görüntülemek için [bu linkteki](https://packagist.org/profile) profil sayfanızı ziyaret edebilirsiniz. Profil sayfanızda **Show API Token** linkine tıklayarak mevcut size özel olarak oluşturulan anahtarı öğrenebilirsiniz.
+
+Anahtarımızı öğrendikten sonra ***GitHub*** üzerindeki depomuza giderek, **Settings** linkine tıklayalım. Açılan ayarlar bölümünden **Webhooks&Services** sekmesine ulaşabiliriz. 
+
+Açılan bölümde **Services** kutucuğunda yer alan **Add Service** butonuna tıklayarak, listelenen servisler arasından ***Packagist*** servisini seçelim. Bu işlemden sonra ***Packagist*** servisine özel tanımlama ekranına yönlendirileceksiniz. 
+
+Bu ekranda sizden 3 temel bilgi istenilecektir;
+
+* ***Packagist*** kullanıcı adınız
+* API Token
+* Domain
+
+Gerekli bilgileri ilgili alanlara yazınız ve **Add Service** butonuna tıklayarak servis oluşturma işleminin tamamlanacaktır. Bundan sonra yapılacak güncellemelerden sonra otomatik olarak ***Packagist*** haberdar edilecektir. 
+
+I> ## Bilgi
+I>
+I> Domain alanına ***https://packagist.org*** değerini yazabilirsiniz.
 
 ## 9. Kurulum Denemesi
 
-Bu bölüm altında paketimizin kurulum ve kullanımı test edilecektir.
+Artık yayınlanan ve ***composer*** ile kurulabilen bir pakete sahibiz. Bunu denememiz bizim için çok kolay. 
+
+Öncelikl bilgisayarımızda boş bir dizin oluşturarak, dizin içerisine aşağıdaki gibi bir `composer.json` dosyası oluşturabiliriz;
+
+```json
+{
+    "require": {
+        "ozziest/example": "dev-master"
+    }    
+}
+```
+
+Dosya kaydedildikten sonra aynı dizinde aşağıdaki komutu çalıştırarak ***composer***'dan bağımlılıkları kurmasını isteyebiliriz;
+
+```
+$ composer install
+```
+
+Eğer daha önceki tüm adımlar sorunsuz bir şekilde tamamlandıysa aşağıdaki çıktıyı göreceksiniz;
+
+```
+Loading composer repositories with package information
+Installing dependencies (including require-dev)
+  - Installing ozziest/example (dev-master 4fe5a33)
+    Cloning 4fe5a333c591d6de91552789b3afa1997d66d1cc
+
+Writing lock file
+Generating autoload files
+```
 
