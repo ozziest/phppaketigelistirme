@@ -4,7 +4,7 @@ Yolculuğumuza başlamadan evvel, neden paket tabanlı çalışmaya ihtiyacımı
 
 ## 1. Aynı Şey, Tekrardan
 
-5 yıllık bir geliştirici olduğunuzu varsayarak işe başlayalım. Bu süre içerisinde PHP ile sayısız proje geliştirmiş olmanız muhtemeldir. Her yaptığınız projenizde bir oturum açma/kapatma, kullanıcı kaydı ya da belki de yetkilendirme sistemi bulunabilir. Ancak 5 yıl yazılım dünyası için oldukça uzun bir süredir. Belki ilk projenizde herhangi framework kullanmıyordunuz fakat bugüne gelene kadar en az bir tanesini aktif olarak kullanmış olabilirsiniz. Eğer yarın başlayacağınız yeni bir projede, hazır bir paket kullanmayacaksanız ve basit bir oturum açma işlemini bile sıfırdan kod yazacaksanız, gerçekten ***maceraperest*** olmalısınız. Eğer bunun yerine elinizin altında oturum yönetimi için kullanılacak hazır bir kod var ise bunu kullanmanız kadar güzel bir şey olamaz.
+5 yıllık bir geliştirici olduğunuzu varsayarak işe başlayalım. Bu süre içerisinde PHP ile sayısız proje geliştirmiş olmanız muhtemeldir. Her yaptığınız projenizde bir oturum açma/kapatma, kullanıcı kaydı ya da yetkilendirme sistemi bulunabilir. Ancak 5 yıl yazılım dünyası için oldukça uzun bir süredir. Belki ilk projenizde herhangi framework kullanmıyordunuz fakat bugüne gelene kadar en az bir tanesini aktif olarak kullanmış olabilirsiniz. Eğer yarın başlayacağınız yeni bir projede, hazır bir paket kullanmayacaksanız ve basit bir oturum açma işlemine bile sıfırdan kod yazacaksanız, gerçekten ***maceraperest*** olmalısınız. Eğer bunun yerine elinizin altında oturum yönetimi için kullanılacak hazır bir kod var ise bunu kullanmanız kadar güzel bir şey olamaz.
 
 Sorunumuz işte tam da bu noktada ortaya çıkıyor. Aslında, framework'lerin de ortaya çıkmasının nedeni benzerdir; sürekli yaptığımız işlemlerin rutinleştirilmesi. **Dont Repeat Yourself** prensibi bize kendimizi tekrar etmememizi söyler. Geliştirdiğimiz bir kodu tekrar tekrar kullanamıyorsak, büyük ihtimalle bir hata yapıyoruz demektir.  
 
@@ -16,7 +16,7 @@ Eskiye nazaran standartlar açısından PHP'de epey yol alındığı söyleyebil
 
 ## 3. PHP Tarafında Güncel Durum
 
-PHP dünyası artık Laravel ve Symfony2 gibi harika frameworklere sahiptir. Özellikle Laravel'in Symfony′den aldığı paketler özellikle incelenmelidir. (Yanlış okumadınız. Laravel, Symfony2 ile bazı paketleri ortak kullanmaktadır.) Bunu ilk duyduğumda ufak çaplı bir şok yaşamıştım. İki framework arasında ortak paket kullanımının nasıl mümkün olabileceğini kavramam biraz zamanımı aldı. Fakat biz geliştiriciler birbirimize rakip değiliz (Ticari değeri olan ürünlerimiz elbette rakip ama ürünlerimizde kullandığımız araçlar benim açından rakip değildir). Genelde birbirimizi rakip olarak görüp hazır bir kütüphane kullanmak yerine bir başka kütüphane geliştirmeyi genelde tercih ediyoruz. 
+PHP dünyası artık Laravel ve Symfony2 gibi harika frameworklere sahiptir. Özellikle Laravel'in Symfony′den aldığı paketler daha bir dikkatle incelenmelidir. (Yanlış okumadınız. Laravel, Symfony2 ile bazı paketleri ortak kullanmaktadır.) Bunu ilk duyduğumda ufak çaplı bir şok yaşamıştım. İki framework arasında ortak paket kullanımının nasıl mümkün olabileceğini kavramam biraz zamanımı aldı. Fakat biz geliştiriciler birbirimize rakip değiliz (Ticari değeri olan ürünlerimiz elbette rakip ama ürünlerimizde kullandığımız araçlar benim açından rakip değildir). Genelde birbirimizi rakip olarak görüp hazır bir kütüphane kullanmak yerine bir başka kütüphane geliştirmeyi tercih ediyoruz. 
 
 ## 4. Kopyala/Yapıştır
 
