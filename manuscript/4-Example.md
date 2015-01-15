@@ -66,7 +66,7 @@ Paketimizi ***GitHub*** üzerinde oluşturduktan sonra, çalışmalarımızı ya
 Aşağıdaki komutu kendi paketinize göre düzenleyerek konsol üzerinde çalıştırınız;
 
 ```
-$ https://github.com/kullanici-adi/paket-adi.git
+$ git clone https://github.com/kullanici-adi/paket-adi.git
 ```
 
 Yukarıdaki komutta **kullanici-adi** yazan bölüme sizin kullanıcı adınız, **paket-adi** yazan bölüme ise sizin paket adınız gelmelidir. 
