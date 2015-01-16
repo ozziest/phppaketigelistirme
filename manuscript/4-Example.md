@@ -4,7 +4,7 @@
 
 Bu bölüm altında paketin ilk oluşturulması aşamasından başlanarak, yayınlanma aşamasına kadar geçen süreçler adım adım örneklenecektir.
 
-Örneğimizde kullanacağımız paketin amacı, temel Türkçe dil bilgisi kurallarını verilen metin üzerinde uygulanmasıdır. Örneğin;
+Örneğimizde kullanacağımız paketin amacı; temel Türkçe dil bilgisi kurallarını verilen metin üzerinde uygulanmasıdır. Örneğin;
 
 ***"bu bir örnek başlıktır"*** 
 
@@ -14,7 +14,7 @@ olarak verilen mesajı aşağıdaki başlık formatına uygulayan bir metotdumuz
 
 I> ## Bilgi
 I>
-I> Bu özelliği belirlemek tamamen bizim elimizde. Amacımız iş yapan bir paket geliştirmek yerine paket geliştirmeyi anlatmak olduğundan, örneğimizde kullancağımız paketin çok az bir işi yapıyor olması işimize gelmektedir.
+I> Bu özelliği belirlemek tamamen bizim elimizde. Amacımız iş yapan bir paket geliştirmek yerine paket geliştirmeyi anlatmak olduğundan, örneğimizde kullancağımız paketin çok az bir işi yapıyor olması yararımıza olacaktır.
 
 ## 2. Temel Yapılandırma 
 
@@ -47,21 +47,19 @@ I> Biz paketimizin adını "Example" olarak belirledik ve bundan sonraki işleml
 
 ### 2.2. Paketin Deposunun Oluşturulması
 
-Bir sonraki adımımız paketimizi nerede muhafaza edeceğimizin belirlenmesidir. Biz herkese açık, [MIT Lisansı](http://opensource.org/licenses/MIT)'na sahip bir paket geliştirmek istiyoruz. Bu nedenlerden ötürü GitHub hesabımda **example** isimli bir depo (repo) oluşturacağım. 
+Bir sonraki adımımız paketimizi nerede muhafaza edeceğimizin belirlenmesidir. Biz herkese açık, [MIT Lisansı](http://opensource.org/licenses/MIT)'na sahip bir paket geliştirmek istiyoruz. Bu nedenlerden ötürü ***GitHub*** hesabımda **example** isimli bir depo (repo) oluşturacağım. Siz de kendi hesabınız üzerinden adımları birebir uygulayabilirsiniz.
 
-Siz de kendi hesabınız üzerinden adımları birebir uygulayabilirsiniz.
-
-Bunun için öncelikle ***GitHub*** üzerinde oturum açmanız gerekmektedir. Daha sonra sağ üstteki kullanıcı adınızın hemen yanında bulunan **+** butonuna tıklayarak, **"New Repository"** menüsü ile yeni depo oluşturma sayfasına gidebilirsiniz. 
+Öncelikle ***GitHub*** üzerinde oturum açmanız gerekmektedir. Daha sonra sağ üstteki kullanıcı adınızın hemen yanında bulunan **+** butonuna tıklayarak, **"New Repository"** menüsü ile yeni depo oluşturma sayfasına gidebilirsiniz. 
 
 Açılan form üzerinde **Repository Name** alanına deponuzun adını yazdıktan sonra **Create Repository** butonuna tıklayarak reponuzu oluşturabilirsiniz. 
 
 I> ## Bilgi
 I> 
-I> Benim örneğimde kullancağım repoya [link](https://github.com/ozziest/example) aracılığı ulaşabilirsiniz.
+I> Benim örneğimde kullancağım depoya [link](https://github.com/ozziest/example) aracılığı ulaşabilirsiniz.
 
 ### 2.3. Paketin Yerele Alınması
 
-Paketimizi ***GitHub*** üzerinde oluşturduktan sonra, çalışmalarımızı yapmak için kendi bilgisayarımıza almamız gerekmektedir. Bunun için paket oluşturulduktan sonra GitHub bize yardımcı olmak amacıyla örnek kodlar göstermektedir. Bu kodlar versiyon kontrol sistemi ***(Git)*** komutlarından oluşmaktadır. Git için hazırlanan kullanıcı arayüzleri olsa da, biz işlemlerimizi ***konsol (terminal)*** üzerinden gerçekleştireceğiz. 
+Paketimizi ***GitHub*** üzerinde oluşturduktan sonra, çalışmalarımızı yapmak için kendi bilgisayarımıza almamız gerekmektedir. Bunun için paket oluşturulduktan sonra ***GitHub*** bize yardımcı olmak amacıyla örnek kodlar göstermektedir. Bu kodlar versiyon kontrol sistemi ***(Git)*** komutlarından oluşmaktadır. Git için hazırlanan kullanıcı arayüzleri olsa da, biz işlemlerimizi ***konsol (terminal)*** üzerinden gerçekleştireceğiz. 
 
 Aşağıdaki komutu kendi paketinize göre düzenleyerek konsol üzerinde çalıştırınız;
 
@@ -69,9 +67,7 @@ Aşağıdaki komutu kendi paketinize göre düzenleyerek konsol üzerinde çalı
 $ git clone https://github.com/kullanici-adi/paket-adi.git
 ```
 
-Yukarıdaki komutta **kullanici-adi** yazan bölüme sizin kullanıcı adınız, **paket-adi** yazan bölüme ise sizin paket adınız gelmelidir. 
-
-Komut çalıştırıldıktan sonra ilgili depo kendi çalışma ortamınıza indirilecektir. Aşağıdaki komut ile deponuz için ayrı bir klasör oluşturulduğunu görebilirsiniz;
+Yukarıdaki komutta **kullanici-adi** yazan bölüme sizin kullanıcı adınız, **paket-adi** yazan bölüme ise sizin paket adınız gelmelidir. Komut çalıştırıldıktan sonra ilgili depo kendi çalışma ortamınıza indirilecektir. Aşağıdaki komut ile deponuz için ayrı bir klasör oluşturulduğunu görebilirsiniz;
 
 ```
 $ ls -all
@@ -89,7 +85,7 @@ Bu komut çalıştırıldıktan sonra ***composer*** bize çeşitli sorular sora
 
 ### 2.5. İlk Commit
 
-Composer yapılandırması oluşturulduktan sonra ana dizinde bir composer.json dosyası oluşacaktır. Bu işlemden sonra var olan yapılandırmamızı ***GitHub*** üzerindeki depomuza gönderilerek ilk commit işlemimiz gerçekleştirilmiş olacaktır. Bunun için aşağıdaki komutlar sırasıyla çalştırılır;
+***Composer*** yapılandırması oluşturulduktan sonra ana dizinde `composer.json` dosyası oluşacaktır. Bu işlemden sonra var olan yapılandırmamızı ***GitHub*** üzerindeki depomuza gönderilerek ilk commit işlemimiz gerçekleştirilecektir. Bunun için aşağıdaki komutlar sırasıyla çalştırılır;
 
 ```
 $ git add .
@@ -99,9 +95,13 @@ $ git push origin master
 
 Bu işlemden sonra yaptığımız değişiklikler depomuza gönderilmiş olacaktır.
 
+I> ## Bilgi 
+I> 
+I> Paketinizin bağımlı olduğu diğer paketler **vendor** dizininde tutulmaktadır. Bu dizini depoya göndermemiz mantıksızdır çünkü dilediğimiz an `composer install` komutuyla bağımlılıkları yükleterebiliriz. Bu nedenle ***vendor*** dizini **.gitignore** dosyasına eklenmelidir.
+
 ## 3. Döküman Oluşturulması
 
-Bu başlığa özellikler yer vermek istiyorum. Çünkü bizim unuttuğumuz en önemli husustan biridir döküman hazırlanması. Çok harika işler yapıldığında dahi bunların belgelenmediğine şahit oluyoruz. Bu nedenle bir paket oluştururken, önce dökümanın hazırlanması oldukça önemlidir. ***"Ön işi yapalım, sonra açıklarız."*** demek yerine; ***"Ön nasıl çalışacağını belgeleyelim, sonra bu belgeye uygulayacak kodları yazarız."*** demek uzun vadede daha kârlı bir iş olacaktır.
+Bu başlığa özellikle yer vermek istiyorum. Çünkü bizim unuttuğumuz en önemli husustan biridir döküman hazırlanması. Çok harika işler yapıldığında dahi bunların belgelenmediğine şahit oluyoruz. Bu nedenle bir paket oluştururken, öncelikle dökümanın hazırlanması oldukça önemlidir. ***"Önce işi yapalım, sonra açıklarız."*** demek yerine; ***"Önce nasıl çalışacağını belgeleyelim, sonra bu belgeyi uygulayacak kodları yazarız."*** demek uzun vadede daha kârlı bir iş olacaktır.
 
 Geliştireceğimiz paket için hazırlayacağımız döküman aşağıdaki temel bölümlerden oluşacaktır;
 
@@ -112,19 +112,19 @@ Geliştireceğimiz paket için hazırlayacağımız döküman aşağıdaki temel
 
 I> ## Bilgi
 I> 
-I> Dökümanımızı [Markdown](https://help.github.com/articles/markdown-basics) formatında **Readme.md** dosyası içerisine yazacağız. GitHub, BitBucket gibi servisler otomatik olarak ***Readme.md*** dosyalarını biçimlendirmektedir.
+I> Dökümanımızı [Markdown](https://help.github.com/articles/markdown-basics) formatında **Readme.md** dosyası içerisine yazacağız. ***GitHub***, ***BitBucket*** gibi servisler otomatik olarak ***Readme.md*** dosyalarını biçimlendirmektedir.
 
 Bu temel başlıkların yerine siz de hazırlayacağınız paketin durumuna göre ek başlıklar oluşturabilirsiniz. Bizim oluşturduğumuz paketin dökümanı [link](https://github.com/ozziest/example/blob/master/README.md) üzerinden incelenebilir.
 
 ## 4. Test Yazılması
 
-Test yazımı ne yazık ki bir çoğumuzun uymadığı bir husustur. Yazmak gibi bir zorunluluğumuz yoktur ancak daha profesyonel bir paket için gereklidir. Bu, paketinizin güvenilirliğini de önemli ölçüde etkilemektedir. 
+Test yazımı ne yazık ki bir çoğumuzun uymadığı bir husustur. Yazmak gibi bir zorunluluğumuz yoktur ancak daha profesyonel bir paket için gereklidir. Bu, paketinizin güvenilirliğini önemli ölçüde etkilemektedir. 
 
-PHP ile test yazmak için bir çok araç bulunmaktadır. Bunlardan en önemlileri [PHPUnit](https://phpunit.de), [PHPSpec](http://www.phpspec.net) ve [CodeCeption](http://codeception.com) araçlarıdır. Siz hepsini inceleyip, ihtiyaçlarınıza göre ([Birim Test](http://tr.wikipedia.org/wiki/Birim_testi), [Entegreasyon Testi](http://en.wikipedia.org/wiki/Integration_testing), [Fonksiyonel Test](http://en.wikipedia.org/wiki/Functional_testing)) en idealini projeniz için kullanabilirsiniz. Biz örneğimiz için PHPUnit'i kullanacağız.   
+***PHP*** ile test yazmak için birçok araç bulunmaktadır. Bunlardan en önemlileri [PHPUnit](https://phpunit.de), [PHPSpec](http://www.phpspec.net) ve [CodeCeption](http://codeception.com) araçlarıdır. Siz hepsini inceleyip, ihtiyaçlarınıza göre ([Birim Test](http://tr.wikipedia.org/wiki/Birim_testi), [Entegreasyon Testi](http://en.wikipedia.org/wiki/Integration_testing), [Fonksiyonel Test](http://en.wikipedia.org/wiki/Functional_testing)) en idealini projeniz için kullanabilirsiniz. Biz örneğimiz için ***PHPUnit***'i kullanacağız.   
 
 ### 4.1. PHPUnit'in Projeye Dahil Edilmesi
 
-PHPUnit kurulumu iki aşamadan oluşmaktadır. Öncelikle PHPUnit'i genel olarak sistemimize kurmamız gerekmektedir;
+***PHPUnit*** kurulumu iki aşamadan oluşmaktadır. Öncelikle ***PHPUnit***'i genel olarak sistemimize kurmamız gerekmektedir;
 
 ```
 $ wget https://phar.phpunit.de/phpunit.phar
@@ -139,7 +139,7 @@ Bu işlemlerden sonra konsol üzerinde aşağıdaki çıktıyı görebilmeniz ge
 PHPUnit 4.4.1 by Sebastian Bergmann.
 ```
 
-Artık PHPUnit sistemimizde kullanılabilir haldedir. PHPUnit ile test geliştirmek için, yazdığımız testlerin PHPUnit içerisinde bulunan sınıflardan genişletilmesi gerekmektedir. Bu nedenle PHPUnit'i projemize de dahil etmek zorundayız. Bu işlemi ***composer.json*** dosyasını aşağıdaki gibi düzenleyerek gerçekleştirebiliriz;
+Artık ***PHPUnit*** sistemimizde kullanılabilir haldedir. ***PHPUnit*** ile test geliştirmek için yazdığımız testlerin ***PHPUnit*** içerisinde bulunan sınıflardan genişletilmesi gerekmektedir. Bu nedenle ***PHPUnit***'i projemize de dahil etmek zorundayız. Bu işlemi ***composer.json*** dosyasını aşağıdaki gibi düzenleyerek gerçekleştirebiliriz;
 
 ```json
 {
@@ -149,20 +149,20 @@ Artık PHPUnit sistemimizde kullanılabilir haldedir. PHPUnit ile test geliştir
 }
 ```
 
-Bu düzenleme işleminden sonra aşağıdaki komutu çalıştırarak PHPUnit'in proje dizinimize kurulmasını sağlayacağız;
+Bu düzenleme işleminden sonra aşağıdaki komutu çalıştırarak ***PHPUnit***'in proje dizinimize kurulmasını sağlayacağız;
 
 ```
 $ composer update
 ```
-Bu işlemler PHPUnit'i projemizde kullanılabilir hale getirmiştir. 
+Bu işlemler ***PHPUnit***'i projemizde kullanılabilir hale getirmiştir. 
 
 W> ## Uyarı
 W>
-W> Eğer PHPUnit kurulumunda sorun yaşıyorsanız, [kendi dökümanından](https://phpunit.de/manual/current/en/installation.html) yararlanabilirsiniz. 
+W> Eğer ***PHPUnit*** kurulumunda sorun yaşıyorsanız, [kendi dökümanından](https://phpunit.de/manual/current/en/installation.html) yararlanabilirsiniz. 
 
 ### 4.2. PHPUnit Yapılandırması
 
-`phpunit` komutuna yazdığımız testleri yolunu belirterek testleri çalıştırabiliriz. Ancak öncelikle bu işlemi her defasında tekrar etmemek amacıyla, paketimizin kök dizinine `phpunit.xml` adında bir yapılandırma dosyası oluşturacağız ve içerisini aşağıdaki gibi düzenleyerek kaydedeceğiz;
+`phpunit` komutuna yazdığımız testleri yolunu belirterek testleri çalıştırabiliriz. Fakat bu işlemi her defasında tekrar etmemek amacıyla, paketimizin kök dizinine `phpunit.xml` adında bir yapılandırma dosyası oluşturacağız ve içerisini aşağıdaki gibi düzenleyerek kaydedeceğiz;
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -176,13 +176,13 @@ W> Eğer PHPUnit kurulumunda sorun yaşıyorsanız, [kendi dökümanından](http
 </phpunit>
 ```
 
-Bu ***XML*** dosyasında öncelikle her test çalıştırıldığında otomatik olarak yüklemelerin yapılacağı dosyayı belirtiyoruz. Bu dosya `vendor/autoload.php` dosyasıdır. 
+Bu ***XML*** dosyasında her test çalıştırıldığında otomatik olarak yüklemelerin yapılacağı dosyayı belirtiyoruz. Bu dosya `vendor/autoload.php` dosyasıdır. 
 
 I> ## Bilgi
 I>
 I> Bu dosya aslında ***composer***'ın kendi kullandığı otomatik yükleme dosyasıdır. Bu dosya aracılığı ile **autoload** bölümünde belirtilen namespace ya da dizin/dosyalar otomatik olarak yüklenecektir. 
 
-İkinci olarak, testlerimizin barındırıldığı dizinin `tests` dizini olduğunu PHPUnit'e söylemekteyiz. Bundan sonra kök dizinimizde her `phpunit` komutu çalıştırıldığında, testlerimiz ***tests*** klasörü altında aranacaktır. Bu işlemlerden sonra `phpunit` komutunun çıktısı aşağıdaki gibi olmalıdır;
+İkinci olarak, testlerimizin barındırıldığı dizinin `tests` dizini olduğunu ***PHPUnit***'e söylemekteyiz. Bundan sonra kök dizinimizde her `phpunit` komutu çalıştırıldığında, testlerimiz ***tests*** klasörü altında aranacaktır. Bu işlemlerden sonra `phpunit` komutunun çıktısı aşağıdaki gibi olmalıdır;
 
 ```
 Time: 38 ms, Memory: 2.00Mb
@@ -192,7 +192,7 @@ No tests executed!
 
 ### 4.3. Test Sınıfının Oluşturulması
 
-Öncelikle ***tests*** dizini altında `SampleTest.php` ismiyle bir dosya oluşturarak, dosyayı aşağıdaki gibi düzenleyelim;
+***tests*** dizini altında `SampleTest.php` ismiyle bir dosya oluşturarak, dosyayı aşağıdaki gibi düzenleyelim;
 
 ```php
 class SampleTest extends PHPUnit_Framework_TestCase {
@@ -205,7 +205,7 @@ class SampleTest extends PHPUnit_Framework_TestCase {
 }
 ```
 
-Bu kodlar ile basit bir test sınıfı oluşturmuş oluyoruz. Test sınıfımızın adı **SampleTest** ve bu sınıf PHPUnit'in bize sağladığı **PHPUnit_Framework_TestCase** sınıfından genişletiliyor.
+Bu kodlar ile basit bir test sınıfı oluşturmuş oluyoruz. Test sınıfımızın adı **SampleTest** ve bu sınıf ***PHPUnit***'in bize sağladığı **PHPUnit_Framework_TestCase** sınıfından genişletiliyor.
 
 Test sınıfımızın içerisinde bir **testSample** metodu bulunuyor. Bu metot testimizi yazacağımız bölümü barındıracaktır. Şimdilik ***PHPUnit***'in çalışmasını kontrol açısından, **true** değerinin **true** olup olmadığını kontrol eden bir test hazırladım. Dosyayı kaydettikten sonra `phpunit` komutunu çalıştırarak aşağıdaki sonucu yeşil renkte görebilirsiniz;
 
@@ -213,7 +213,7 @@ Test sınıfımızın içerisinde bir **testSample** metodu bulunuyor. Bu metot 
 OK (1 test, 1 assertion)
 ```
 
-Bu demek oluyor ki testimiz sorunsuz bir şekilde çalışıyor.
+Bu sonuç gösteriyor ki testimiz sorunsuz bir şekilde çalışıyor.
 
 ### 4.4. Testimizin Yazılması
 
@@ -232,11 +232,15 @@ Burada yaptığımız; sınıfımızı kullanarak, beklediğimiz sonucu sınıf�
 
 Bundan sonra yapmamız gereken; testimizin tekrar **yeşil** renge dönmesini sağlayan kodları yazmaktır.
 
+I> ## Bilgi 
+I> 
+I> Burada uyguladığımız adımlar [Test Driven Development](http://en.wikipedia.org/wiki/Test-driven_development) adımlarına göre ilerlemektedir. 
+
 ## 5. Paketin Geliştirilmesi
 
 Bu bölümde daha önce yazdığımız testi geçen paketimizin kodlarını geliştireceğiz. 
 
-Öncelikle `src` dizinimizin altında `Ozziest\Example` klasörleri oluşturuyoruz.
+Öncelikle `src` dizinimizin altında `Ozziest\Example` klasörlerini oluşturuyoruz.
 
 ```
 ├── src/
@@ -244,7 +248,7 @@ Bu bölümde daha önce yazdığımız testi geçen paketimizin kodlarını geli
 │   │   ├── Example
 ```
 
-Daha sorna `Example` klasörü içerisine `Example.php` dosyası oluşturarak, içerisini aşağıdaki gibi dolduruyoruz.
+Daha sorna `Example` klasörü içerisine `Example.php` dosyası oluşturarak, içerisini aşağıdaki gibi düzenliyoruz;
 
 ```php
 namespace Ozziest\Example;
@@ -279,11 +283,7 @@ Otomatik yükleme işlemi için ***composer.json*** dosyamızı açarak içerisi
 }
 ```
 
-Bu eklemeyle birlikte ***composer***'a ilgili namespace'in hangi dizin altında aranması gerektiğini söylemiş oluyoruz. Bu işlemden sonra komut satırında aşağıdaki komutu çalıştırarak, otomatik yüklemelerin yeniden ayarlanması gerektiğini ***composer***'a söylemiş oluyoruz;
-
-```
-$ composer dump-autoload
-```
+Bu eklemeyle birlikte ***composer***'a ilgili namespace'in hangi dizin altında aranması gerektiğini söylemiş oluyoruz. 
 
 I> ## Bilgi
 I>
@@ -314,13 +314,13 @@ Bu işlemden sonra hedeflediğimiz işi yapan basit bir sınıf geliştirdiğimi
 
 I> ## Bilgi
 I>
-I> Yaptığınız tüm değişikliklri ***GitHub*** üzerindeki deponuza gönderdiğinizden lütfen emin olunuz.
+I> Yaptığınız tüm değişiklikleri ***GitHub*** üzerindeki deponuza gönderdiğinizden lütfen emin olunuz.
 
 ## 6. Bağımlılık Tanımlaması
 
-Bizim hazırladığımız paket, yalnızca tek bir işe odaklanmış bir pakettir. Bu nedenle aklınıza "Neden bu kadar basit bir iş için bu kadar uğraştık?" sorusu gelmesi son derece mantıklıdır. Ancak bizim paketimizdeki iş örnek oluşturulması amacıyla seçilmiştir. Daha çok iş yapan çok gelişmiş bir paket oluşturabilirsiniz. Örneğin [Sentry](https://github.com/cartalyst/sentry) gibi yetkilendirme ve oturum yönetimi işlemini gerçekleştiren çok büyük paketler vardır. Fakat her paketin de bu kadar kapsamlı olmasına da gerek yoktur. Küçük bir işe odaklanan, basit paketlerin olması da mümkündür. 
+Bizim hazırladığımız paket, yalnızca tek bir işe odaklanmıştır. Bu nedenle aklınıza ***"Neden bu kadar basit bir iş için bu kadar uğraştık?"*** sorusu gelmesi son derece mantıklıdır. Ancak bizim paketimizdeki iş örnek oluşturulması amacıyla seçilmiş, basit bir sorunu çözmektedir. Daha çok iş yapan çok gelişmiş bir paket oluşturabilirsiniz. Örneğin [Sentry](https://github.com/cartalyst/sentry) gibi yetkilendirme ve oturum yönetimi işlemini gerçekleştiren çok büyük paketler vardır. Fakat her paketin de bu kadar kapsamlı olmasına da gerek yoktur. Küçük bir işe odaklanan, basit paketlerin olması da mümkündür. 
 
-Bazı durumlarda paketler büyükçe bağımlı olduğu başka paketler de olabilmektedir. Bunun için ilgili bağımlılığının ***composer.json*** üzerinde tanımlanması gerekmektedir. Bu tanımlamadan sonra asıl kodlarımız için ilgili bağımlılık kullanılabilir.
+Bazı durumlarda paketler büyükdükçe bağımlı olduğu başka paketler de olabilmektedir. Bunun için ilgili bağımlılığının ***composer.json*** üzerinde tanımlanması gerekmektedir. Bu tanımlamadan sonra asıl kodlarımız için ilgili bağımlılık kullanılabilir.
 
 ## 7. Semantik Versiyonlama
 
@@ -359,13 +359,13 @@ Paketimize yeni bir özellik eklediğimizde bu kategoride değerlendirilir. Örn
 
 W> ## Uyarı
 W>
-W> Anahtar kuralımız, minor değişiklikten sonra geçmişe yönelik desteğin devam etmesidir. Eğer destek devam etmiyorsa, yani paketin eski halini kullanan kodlar bundan etkilenebilirse bu bir major değişikliktir. 
+W> Anahtar kuralımız, minor değişiklikten sonra geçmişe yönelik desteğin devam etmesidir. Eğer destek devam etmiyorsa, yani paketin eski halini kullanan kodlar bundan etkilenebilirse bu bir ***major*** değişikliktir. 
 
 #### 7.4. Major Güncellemeler
 
 Paketimizde yapılan ve sonrasında paketin çalışmasını doğrudan etkileyen değişikliklere verilen isimdir. Örneğin var olan bir metodun kaldırılması ya da yeni bir zorunlu parametre eklenmesi gibi değişiklikler **major** güncelleme olarak adlandırılır.
 
-Major güncellemeler pek sevilmez. Çünkü o ana kadar paketi kullanan başka projeler bundan etkilenecektir. Eğer bir major güncelleme olursa, muhtalaka bir **Upgrade Guide (Yükseltme Rehberi)** hazırlanarak, ilgili değişikliğe nasıl adapte olunacağı belgelendirilmelidir.
+Major güncellemeler pek sevilmez. Çünkü o ana kadar paketi kullanan başka projeler bundan etkilenecektir. Eğer bir major güncelleme olursa, muhtalaka bir **Upgrade Guide (Yükseltme Rehberi)** hazırlanarak, ilgili değişikliğe nasıl adapte olunacağı belgelendirilmelidir. Yükseltme belgelerini daha iyi anlamak amacıyla, Symfony2 Framework için hazırlanan [UPGRADE FROM 2.x to 3.0](https://github.com/symfony/symfony/blob/2.7/UPGRADE-3.0.md) dökümanını inceleyebilirsiniz. Bu döküman, 3.0 sürümü için yapılan her güncellemeden sonra tekrardan değiştirilmektedir.  
 
 I> ## Bilgi 
 I> 
@@ -455,17 +455,17 @@ Kontrol işleminden sonra form üzerinde **"Submit"** butonu görünecektir. But
 
 Varsayalım paketinize yeni güncellemeler gönderdiniz ve bu güncellemelerden sonra paketinizin yeni bir versiyon numarası oldu. Bu bilgi otomatik olarak ***Packagist***'e ulaşmaz. Bu durumda ya her güncellemeden sonra paket sayfasına gelerek **"Force Update"** butonu aracılığı ile paketin son halinin kontrol edilmesini isteyeceksiniz ya da bu işlemi otomatikleştireceksiniz. 
 
-Otomatikleştirme işlemi için her güncellemeden sonra ***GitHub***'dan ***Packagist***'in tetiklenmesini sağlayacağız. Bu tetikleme işlemine **Services** adı verilmektedir. 
+Otomatikleştirme işlemi için her güncellemeden sonra ***GitHub***'dan ***Packagist***'in tetiklenmesini sağlayacağız. 
 
 I> ## Bilgi
 I>
-I> Sadece ***Packagist*** için değil bir çok farklı servis için tetikleme işlemi tanımlayabilir, dilerseniz kendinize özet tetiklemeler yazabilirsiniz. (Örneğin her yeni versiyondan sonra otomatik tweet gönderilmesi gibi.) Tüm bu işlemler deponuzun ayarlar bölümünde ***Webhooks&Services*** sekmesi altında yer almaktadır. 
+I> Sadece ***Packagist*** için değil birçok farklı servis için tetikleme işlemi tanımlayabilir, dilerseniz kendinize özet tetiklemeler yazabilirsiniz. (Örneğin her yeni versiyondan sonra otomatik tweet gönderilmesi gibi.) Tüm bu işlemler deponuzun ayarlar bölümünde ***Webhooks&Services*** sekmesi altında yer almaktadır. 
 
 Tetikleme işlemlerinde kullanılmak üzere ***Packagist*** size bir **API Token (API Anahtarı)**vermektedir. Bu anahtarı görüntülemek için [bu linkteki](https://packagist.org/profile) profil sayfanızı ziyaret edebilirsiniz. Profil sayfanızda **Show API Token** linkine tıklayarak mevcut size özel olarak oluşturulan anahtarı öğrenebilirsiniz.
 
-Anahtarımızı öğrendikten sonra ***GitHub*** üzerindeki depomuza giderek, **Settings** linkine tıklayalım. Açılan ayarlar bölümünden **Webhooks&Services** sekmesine ulaşabiliriz. 
+Anahtarımızı öğrendikten sonra ***GitHub*** üzerindeki deponuza giderek, **Settings** linkine tıklayabilir, açılan ayarlar bölümünden **Webhooks&Services** sekmesine ulaşabiliriz. 
 
-Açılan bölümde **Services** kutucuğunda yer alan **Add Service** butonuna tıklayarak, listelenen servisler arasından ***Packagist*** servisini seçelim. Bu işlemden sonra ***Packagist*** servisine özel tanımlama ekranına yönlendirileceksiniz. 
+Açılan bölümde **Services** kutucuğunda yer alan **Add Service** butonuna tıklayarak, listelenen servisler arasından ***Packagist*** servisini seçmelisiniz. Bu işlemden sonra ***Packagist*** servisine özel tanımlama ekranına yönlendirileceksiniz. 
 
 Bu ekranda sizden 3 temel bilgi istenilecektir;
 
@@ -481,9 +481,7 @@ I> Domain alanına ***https://packagist.org*** değerini yazabilirsiniz.
 
 ## 9. Kurulum Denemesi
 
-Artık yayınlanan ve ***composer*** ile kurulabilen bir pakete sahibiz. Bunu denememiz bizim için çok kolay. 
-
-Öncelikl bilgisayarımızda boş bir dizin oluşturarak, dizin içerisine aşağıdaki gibi bir `composer.json` dosyası oluşturabiliriz;
+Artık yayınlanan ve ***composer*** ile kurulabilen bir pakete sahibiz. Deneme işlemi oldukça basittir. Öncelikle bilgisayarımızda boş bir dizin oluşturarak, dizin içerisine aşağıdaki gibi bir `composer.json` dosyası oluşturabiliriz;
 
 ```json
 {
@@ -510,4 +508,6 @@ Installing dependencies (including require-dev)
 Writing lock file
 Generating autoload files
 ```
+
+Eğer yukarıdaki gibi bir ekran gördüyseniz ve herhangi bir hata ile karşılaşmadıysanız herşey yolunda gitmiş demektir.
 

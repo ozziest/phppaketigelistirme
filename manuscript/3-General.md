@@ -1,6 +1,6 @@
 # Genel Bakış
 
-PHP için hazırlanan bir paket genel olarak bir PHP yazılımından farksızdır. Buna rağmen paketlerin genel amacı; hızlı bir şekilde ve koda girmeksizin başka projelerde kullanılabilmesidir. Bu bölümde genel kabul görmüş paket oluşturma kurallarına değinilecektir.
+***PHP*** için hazırlanan bir paket, genel olarak bir ***PHP*** betiğinden farksızdır. Buna rağmen paketlerin genel amacı; hızlı bir şekilde ve koda girmeksizin başka projelerde kullanılabilmesidir. Bu bölümde üzerinde de genel kabul görmüş paket oluşturma kurallarına değinilecektir.
 
 ## 1. Dizin Yapısı
 
@@ -15,18 +15,18 @@ Aşağıda temel bir paketin dizin yapısı görülmektedir;
 ├── README.md
 ```
 
-* `composer.json`: Bu dosya bağımlılık yöneticisine (Composer) paketimizi tanıtan dosyadır.
+* `composer.json`: Bu dosya bağımlılık yöneticisine paketimizi tanıtan dosyadır.
 * `src/`: Asıl dosyalarımızın bulunacağı dizindir. 
 * `tests`: Paketimizin çalışmasını test eden kodlarımız da bu bölüm altında yer almaktadır.
-* `README.md`: Paket hakkında genel bilgiler veren, Markdown fomatında hazırlanmış bir ön dökümandır. Paket hakkında oluşturulacak döküman ufaksa sadece bu dosyaya yazılır. Eğer daha geniş bir döküman varsa ayrı bir klasör altında dökümanlar toparlanabilir.
+* `README.md`: Paket hakkında genel bilgiler veren, ***Markdown*** fomatında hazırlanmış bir ön dökümandır. Paket hakkında oluşturulacak döküman ufaksa sadece bu dosyaya yazılır. Eğer daha geniş bir döküman varsa ayrı bir klasör altında dökümanlar toparlanabilir ya da paket dosyalarının saklandığı servis üzerinde (GitHub, BitBucket) bir **Wiki** sayfası oluşturulur.
 
 I> ## Bilgi
 I> 
-I> Genelde kabul edilen kullanım şekli bu olmasına rağmen kesin bir kural değildir. Dolayısıyla kendi paketinizde dilediğiniz dizin yapısını kullanabilirsiniz. Ancak sizin paketinize katkı yapmak isteyecek bir geliştiricinin kafasını karıştırmaktan öteye gitmiş olmazsınız. Bu nedenle genel kabullere uymak yararlıdır.
+I> Genelde kabul edilen kullanım şekli bu olmasına rağmen kesin bir kural değildir. Dolayısıyla kendi paketinizde dilediğiniz dizin yapısını kullanabilirsiniz. Ancak sizin paketinize katkı yapmak isteyecek bir geliştiricinin kafasını karıştırmaktan öteye gitmiş olmazsınız. Bu nedenle genel kabullere uymak çoğu zaman yararlıdır.
 
 ## 2. Kod Yapısı
 
-Bugüne kadar hiç fonksiyonlardan oluşan bir paket kullanmadım. Daha çok tüm paketler bir sınıf yapısına sahip olmaktadır ve muhakkar bir namespace kullanmaktadır. Global Scope üzerinde herhangi bir sınıf tanımlamak pek hoş karşılanan bir durum değildir. Yukarıdaki klasör yapısında aşağıdaki gibi bir namespace kullanılmış olması muhtemeldir;
+Şahsen bugüne kadar hiç fonksiyonlardan oluşan bir paket kullanmadım. Genelde tüm paketler bir sınıf yapısına sahip olmakta ve muhakkar bir namespace barındırmaktadır. **Global Scope** üzerinde herhangi bir sınıf tanımlamak hoş karşılanan bir durum değildir. Yukarıdaki klasör yapısında aşağıdaki gibi bir namespace kullanılmış olması muhtemeldir;
 
 ```php
 namespace Ozziest\Example;
@@ -34,7 +34,7 @@ namespace Ozziest\Example;
 
 ## 3. Autoload
 
-Composer'ın en güzel yanlarından biri de autoload (Otomatik Yükleme) özelliğidir. ***composer.json*** içerisinde tanımlayacağınızı dizinleri otomatik olarak yükletebilirsiniz. Böylelikle paketinizi kullanan kullanıcılar `include` komutu ile uğraşmayacaklardır. 
+***Composer***'ın en güzel yanlarından biri de autoload (Otomatik Yükleme) özelliğidir. ***composer.json*** içerisinde tanımlayacağınızı dizinleri otomatik olarak yükletebilirsiniz. Böylelikle paketinizi kullanan kullanıcılar `include` komutu ile uğraşmayacaklardır. 
 
 `composer.json` içerisinde 4 farklı türde autoload tanımlaması desteklenmektedir;
 
@@ -45,7 +45,7 @@ Composer'ın en güzel yanlarından biri de autoload (Otomatik Yükleme) özelli
 
 ### 3.1. PSR-0 
 
-PSR-0 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
+***PSR-0*** standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
 
 ```json
 {
@@ -61,11 +61,11 @@ Bu tanımlama ile `Ozziest\Example` namespace'imizin nerede aranması gerektiği
 
 I> ## Uyarı
 I> 
-I> [PSR-0](http://www.php-fig.org/psr/psr-0/) **PHP Otomatik Yükleme Standardı**'dır. Ancak bu standart artık önerilmemekte ve bunun yerine PSR-4 standardı önerilmektedir. 
+I> [PSR-0](http://www.php-fig.org/psr/psr-0/) **PHP Otomatik Yükleme Standardı**'dır. Ancak bu standart yerine artık PSR-4 standardı önerilmektedir. 
 
 ### 3.2. PSR-4
 
-PSR-4 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
+***PSR-4*** standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı tanımlanabilir;
 
 ```json
 {
@@ -77,11 +77,11 @@ PSR-4 standartları kullanılarak aşağıdaki gibi bir otomatik yükleme kaydı
 }
 ```
 
-Bu tanımlama ile `Ozziest\Example` namespace'imizin nerede aranması gerektiğini Composer'a söylemiş olmaktayız.
+Bu tanımlama ile `Ozziest\Example` namespace'imizin nerede aranması gerektiğini ***Composer***'a bildirilmiştir..
 
 ### 3.3. Classmap
 
-Classmap, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan klasörlerin otomatik olarak yüklenmesi için daha uygundur.
+***Classmap***, sadece sınıf barındıran ve herhangi bir ***Namespace***'e sahip olmayan klasörlerin otomatik olarak yüklenmesi için daha uygundur.
 
 ```json
 {
@@ -93,7 +93,7 @@ Classmap, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan 
 
 ### 3.4. Files
 
-Files, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan tek bir dosyanın otomatik olarak yüklenmesi istenildiğinde daha uygundur.
+***Files***, sadece sınıf barındıran ve herhangi bir ***Namespace***'e sahip olmayan tek bir dosyanın otomatik olarak yüklenmesi istenildiğinde daha uygundur.
 
 ```json
 {
@@ -105,7 +105,9 @@ Files, sadece sınıf barındıran ve herhangi bir namespace'e sahip olmayan tek
 
 ## 4. Bağımlılık Yönetimi
 
-Geliştirdiğimiz paketin hiçbir başka pakete bağımlı olmadan, kendi başına çalışabilmesi en idealidir. Ancak bu çoğu zaman mümkün değildir ve paketler başka paketlerle birlikte çalışma ihtiyacı hissedebilirler. Örneğin [Symfony/Yaml](https://github.com/symfony/Yaml) kendi başına çalışabilen bir paketken, [PHPUnit](https://github.com/sebastianbergmann/phpunit) çalışmak için başka paketlere bağımlıdır. Tüm bu bağımlılıkların hepsi `composer.json` dosyası içerisinde tanımlanmalıdır. Aşağıda PHPUnit paketinin bağımlılıklarının yazıldığı bölüm görülmektedir;
+Geliştirdiğimiz paketin hiçbir başka pakete bağımlı olmadan, kendi başına çalışabilmesi en idealidir. Ancak bu çoğu zaman mümkün değildir ve paketler başka paketlerle birlikte çalışma ihtiyacı hissedebilirler. Örneğin [Symfony/Yaml](https://github.com/symfony/Yaml) kendi başına çalışabilen bir paketken, [PHPUnit](https://github.com/sebastianbergmann/phpunit) çalışmak için başka paketlere bağımlıdır. Tüm bu bağımlılıkların hepsi `composer.json` dosyası içerisinde tanımlanmalıdır. 
+
+Aşağıda ***PHPUnit*** paketinin bağımlılıklarının yazıldığı bölüm görülmektedir;
 
 ```json
 {
@@ -135,7 +137,7 @@ Geliştirdiğimiz paketin hiçbir başka pakete bağımlı olmadan, kendi başı
 
 W> ## Uyarı
 W> 
-W> Eğer bir paketten herhangi bir özelliği kendi paketimizde kullandıysak ve bunu ***composer.json*** dosyasında tanımlamadıysak ne olur? Paketimiz yüklendiğinde bağımlı olunan paket yüklenmez ve çalışma anında bağımlı olunan paket bulunamadığı için bir hata ile karşılaşılır.
+W> Eğer bir paketten herhangi bir özelliği kendi paketimizde kullandıysak ve bunu ***composer.json*** dosyasında tanımlamadıysak, paketimiz yüklendiğinde bağımlı olunan paket yüklenmez ve çalışma anında ilişkili kodlar bulunamadığı için hata meydana gelir.
 
 ## 5. Versiyon Kontrol Sistemi
 
@@ -143,15 +145,11 @@ Versiyon kontrol sistemleri geliştirdiğimiz projelerin takibinin kolaylaştır
 
 W> ## Uyarı
 W> 
-W> Versiyon kontrol sistemleri bilinen aksin sadece ekip çalışmasının olduğu yerde değil, tek kişi tarafından geliştirilen projeler için de bir zorunluluktur. 
+W> Versiyon kontrol sistemleri bilinen aksin sadece ekip çalışmasının olduğu yerde değil, tek kişi tarafından geliştirilen projeler için de bir ***kolaylık sağlamaktadır.***. 
 
 Paket geliştirme sürecinde ise versiyon kontrol sistemleri kullanılmak zorundadır. Geliştirdiğiniz paketin anlık sürümü, yeni özelliklerin hangi sürümlerle çıkacağı vb. gibi nedenlerden ötürü bu bir zorunluluk halini almıştır.
 
-Şuanda bir çok versiyon kontrol sistemi olsa da ağırlıklı olarak **[Git](http://git-scm.com)** ve **[SVN](http://tortoisesvn.net)** tercih edilmektedir. Yine bir çok geliştirici de kullanım kolaylığı açısından ***Git*** önermektedir. Bu nedenlerden ötürü ben de geliştirdiğiniz paketlerde ***Git*** kullanmanızı tavsiye etmekteyim.
-
-I> ## Bilgi
-I>
-I> İlerleyen bölümlerde versiyon kontrol sisteminin paketlerde kullanılmasıyla ilgili ipuçları verilecektir.
+Şuanda birçok versiyon kontrol sistemi olsa da ağırlıklı olarak **[Git](http://git-scm.com)** ve **[SVN](http://tortoisesvn.net)** tercih edilmektedir. Yine birçok geliştirici de kullanım kolaylığı açısından ***Git*** önermektedir. Bu nedenlerden ötürü ben de geliştirdiğiniz paketlerde ***Git*** kullanmanızı tavsiye ediyorum.
 
 ## 6. GitHub ve Alternatifleri
 
@@ -159,7 +157,7 @@ Paket geliştirme sürecinde versiyon kontrol sistemi kullanarak kodlarınızı 
 
 I> ## Bilgi
 I>
-I> Eğer gerekli olduğunu düşünürseniz kendi sunucularınızı da versiyon kontrol sistemi sunucusu olarak yapılandırabilir ve kodlarınızı kendi sunucularınızda muhafaza edebilirsiniz. Ancak bu konu e-kitap kapsamı dışında olduğundan, e-kitap boyunca değinilmeyecektir.
+I> Eğer gerekli olduğunu düşünürseniz kendi sunucularınızı da versiyon kontrol sistemi sunucusu olarak yapılandırabilir ve kodlarınızı kendi sunucularınızda muhafaza edebilirsiniz. Ancak bu konu e-kitap kapsamı dışında olduğundan değinilmeyecektir.
 
 Her iki siteyi kullanarak, kodlarınızı versiyon kontrol sistmei aracılığı ile muhafaza edebilirsiniz. Ancak ***GitHub*** çok fazla sebepten ötürü daha çok tercih edilmektedir. ***BitBucket***'ın en büyük avantajı ise ücretsiz **Gizli Depo (Private Repository)** oluşturulmasına izin vermesidir. ***GitHub***'da bunu yapmak istediğinizde ücret ödemek zorunda kalırsınız.
 
